@@ -67,8 +67,8 @@ namespace RunComp {
      * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
-    //% blockId="sensor_ping" block="ping trig %trig|echo %echo|unit %unit"
-    function ping(trig: DigitalPin, echo: DigitalPin, maxCmDistance = 500): number {
+    //% blockId="runningcomp_ping" block="ping trig %trig|echo %echo|unit %unit"
+    export function ping(trig: DigitalPin, echo: DigitalPin, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
         pins.digitalWritePin(trig, 0);
