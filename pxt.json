@@ -1,6 +1,6 @@
 {
-    "name": "pxt-running-competition",
-    "version": "0.0.0",
+    "name": "pxt-sensors",
+    "version": "0.0.1",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -10,7 +10,7 @@
     "files": [
         "README.md",
         "main.ts",
-        "lightgate.ts"
+        "sensors.ts"
     ],
     "testFiles": [
         "test.ts"

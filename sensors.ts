@@ -1,5 +1,5 @@
-//% color="#FF6632" icon="\uf0fb" block="Running Comp" blockId="running_competition"
-namespace RunComp {
+//% color="#FF6632" icon="\uf0fb" block="Sensors" blockId="sensors_block"
+namespace Sensors {
     let lightLevel = 0
     let mindelta = 256
     let isDropped = false
@@ -7,7 +7,7 @@ namespace RunComp {
     /**
      * Set initial light flux
     */
-    //% blockId=runcomp_setlightflux block="Read normal light level"
+    //% blockId=sensors_setlightflux block="Read normal light level"
     export function SetLightLevel(): void {
         led.enable(true)
         let readcounter = 12
@@ -30,7 +30,7 @@ namespace RunComp {
     /**
     * Triggering when light level drops
     */
-    //% blockId="runcomp_onLightDrop" block="Execute when light level drops"
+    //% blockId="sensors_onLightDrop" block="Execute when light level drops"
     export function OnLightDrop(action: () => void) {
         const myEventID = 111 + Math.randomRange(0, 100); // semi-unique
         const lightValue = 1;
@@ -61,10 +61,9 @@ namespace RunComp {
 
     let sosCoef = 1 / ((331 + 0.607 * (input.temperature() - 4)) / 10000 / 2)
     /**
-     * Send a ping and get the echo time (in microseconds) as a result
+     * Send a ping and get the echo time (in microseconds converted to cm) as a result
      * @param trig tigger pin
      * @param echo echo pin
-     * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
     //% blockId="runningcomp_ping" block="ping trig %trig|echo %echo|unit %unit"
