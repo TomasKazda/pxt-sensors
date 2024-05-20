@@ -59,7 +59,7 @@ namespace Sensors {
         })
     }
 
-    let sosCoef = 1 / ((331 + 0.607 * (input.temperature() - 4)) / 10000 / 2)
+    let sosCoef = (331 + 0.607 * (input.temperature() - 4)) / 10000 / 2
     /**
      * Send a ping and get the echo time (in microseconds converted to cm) as a result
      * @param trig tigger pin
@@ -78,6 +78,6 @@ namespace Sensors {
 
         // read pulse in cm
         const d = pins.pulseIn(echo, PulseValue.High, maxCmDistance * 58);
-        return Math.round(d / sosCoef)
+        return Math.round(d * sosCoef)
     }
 }
